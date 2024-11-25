@@ -14,10 +14,13 @@ import {
   CloseButton,
   TechnologiesContainer,
   TechnologyTag,
+  GithubLink,
+  FullDescription,
 } from './Timeline.styles';
+
 Modal.setAppElement('#root');
 
-const Timeline = () => {
+const Timeline: React.FC = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
@@ -36,10 +39,7 @@ const Timeline = () => {
         <TimelineEntryContainer
           key={index}
           isEven={index % 2 === 0}
-          onClick={() => openModal(project)} // Handle click on the entire container
-          role="button" // Improves accessibility
-          tabIndex={0} // Makes it keyboard-navigable
-          onKeyDown={(e) => e.key === 'Enter' && openModal(project)} // Handle "Enter" key for accessibility
+          onClick={() => openModal(project)}
         >
           <Thumbnail src={project.thumbnail} alt={project.title} />
           <ProjectInfo>
@@ -50,19 +50,50 @@ const Timeline = () => {
         </TimelineEntryContainer>
       ))}
 
-      <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={{
+          content: {
+            maxWidth: '500px',
+            margin: 'auto',
+            padding: '20px',
+            borderRadius: '10px',
+            backgroundColor: '#333',
+            color: '#fff',
+            position: 'relative',
+          },
+        }}
+      >
         {selectedProject && (
           <ModalContent>
             <CloseButton onClick={closeModal}>&times;</CloseButton>
             <ModalTitle>{selectedProject.title}</ModalTitle>
+            <YearLabel>{selectedProject.year}</YearLabel>
+
             <p>{selectedProject.description}</p>
 
+            {/* Full Description */}
+            <FullDescription>{selectedProject.fullDescription}</FullDescription>
+
+            {/* Technologies Used */}
             <TechnologiesContainer>
               <h4>Technologies Used:</h4>
               {selectedProject.technologies.map((tech, index) => (
                 <TechnologyTag key={index}>{tech}</TechnologyTag>
               ))}
             </TechnologiesContainer>
+
+            {/* GitHub Link (Optional) */}
+            {selectedProject.githubLink && (
+              <GithubLink
+                href={selectedProject.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on GitHub
+              </GithubLink>
+            )}
           </ModalContent>
         )}
       </Modal>

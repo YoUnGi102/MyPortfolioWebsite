@@ -28,9 +28,6 @@ const Navbar: React.FC = () => {
         <NavLink to="/about" onClick={() => setIsOpen(false)}>
           About Me
         </NavLink>
-        <NavLink to="/education" onClick={() => setIsOpen(false)}>
-          Education
-        </NavLink>
         <NavLink to="/contact" onClick={() => setIsOpen(false)}>
           Contact
         </NavLink>
