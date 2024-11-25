@@ -1,0 +1,12 @@
+TODO:
+
+About me:
+Add skills
+
+Projects:
+Add projects
+Style card so its clickable
+
+
+Overall:
+Add better styling (not visible now)
