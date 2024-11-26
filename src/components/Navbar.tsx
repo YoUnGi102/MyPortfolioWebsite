@@ -1,43 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
+  NavbarContainer,
+  NavLinks,
   NavLink,
   NavbarTitle,
-  NavbarContainer,
-  Hamburger,
-  DownloadButton,
-  NavLinks,
 } from './Navbar.styles';
 
-const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const Navbar: React.FC<{
+  onNavigate: (sectionId: string) => void;
+}> = ({ onNavigate }) => {
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        setIsVisible(false); // Hide navbar when scrolling down
+      } else {
+        setIsVisible(true); // Show navbar when scrolling up
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   return (
-    <NavbarContainer>
+    <NavbarContainer isVisible={isVisible}>
       <NavbarTitle>My Portfolio</NavbarTitle>
-
-      <Hamburger onClick={toggleMenu}>{isOpen ? '✖' : '☰'}</Hamburger>
-
-      <NavLinks isOpen={isOpen}>
-        <NavLink to="/" onClick={() => setIsOpen(false)}>
-          Projects
+      <NavLinks>
+        <NavLink onClick={() => onNavigate('about')}>About Me</NavLink>
+        <NavLink onClick={() => onNavigate('skills')}>Skills</NavLink>
+        <NavLink onClick={() => onNavigate('experience')}>
+          Work Experience
         </NavLink>
-        <NavLink to="/about" onClick={() => setIsOpen(false)}>
-          About Me
-        </NavLink>
-        <NavLink to="/contact" onClick={() => setIsOpen(false)}>
-          Contact
-        </NavLink>
-        <DownloadButton
-          href="/Tomas_Gres_CV.pdf"
-          download
-          onClick={() => setIsOpen(false)}
-        >
-          Download CV
-        </DownloadButton>
+        <NavLink onClick={() => onNavigate('education')}>Education</NavLink>
+        <NavLink onClick={() => onNavigate('projects')}>Projects</NavLink>
+        <NavLink onClick={() => onNavigate('hobbies')}>Hobbies</NavLink>
       </NavLinks>
     </NavbarContainer>
   );

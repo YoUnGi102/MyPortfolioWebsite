@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const AboutContainer = styled.div`
   width: 80%;
-  margin: 0 auto;
+  margin: 60px auto;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -230,4 +230,80 @@ export const ProjectDescription = styled.p`
   font-size: 0.9em;
   color: #ccc;
   margin: 0;
+`;
+
+export const HobbiesContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+`;
+
+export const HobbyCard = styled.div`
+  background-color: #333;
+  color: #f5f5f5;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1em;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
+
+export const CVButton = styled.a`
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 80px;
+  height: 80px;
+  background-color: #35bcbf;
+  color: #fff;
+  text-decoration: none;
+  font-size: 2.5em; /* Adjust icon size */
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.3s,
+    background-color 0.3s;
+  cursor: pointer;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    transform: scale(1.1);
+    background-color: #2ba9a8;
+
+    .tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  .tooltip {
+    position: absolute;
+    bottom: 80px;
+    right: -20px;
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.5em;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.3s,
+      visibility 0.3s;
+    z-index: 10000;
+  }
 `;
