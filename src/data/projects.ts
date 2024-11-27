@@ -1,5 +1,3 @@
-import { GithubLink } from '../components/Timeline.styles';
-
 export interface Project {
   year: number;
   title: string;

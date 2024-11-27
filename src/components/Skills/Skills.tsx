@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import skillsData, { Skill } from '../../data/skills';
+import skillsData from '../../data/skills';
 import {
-  SkillsContainer,
   SkillsGrid,
   SkillCard,
   SkillName,

@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FontAwesomeIcon icon={faEnvelope} /> Gmail
+          <FontAwesomeIcon icon={faEnvelope as any} /> Gmail
         </a>
       </SocialIcons>
     </FooterContainer>

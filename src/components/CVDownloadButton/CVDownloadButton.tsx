@@ -6,7 +6,7 @@ import { CVButton } from './CVDownloadButton.styles';
 const CVDownloadButton: React.FC = () => {
   return (
     <CVButton href="/Tomas_Gres_CV.pdf" download>
-      <FontAwesomeIcon icon={faFileDownload} />
+      <FontAwesomeIcon icon={faFileDownload as any} />
       <span className="tooltip">Download CV</span>
     </CVButton>
   );
