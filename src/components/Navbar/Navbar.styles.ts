@@ -17,7 +17,6 @@ export const NavbarContainer = styled.div<{ isVisible: boolean }>`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
 
-  /* Slide up when not visible */
   transform: ${({ isVisible }) =>
     isVisible ? 'translateY(0)' : 'translateY(-100%)'};
 `;

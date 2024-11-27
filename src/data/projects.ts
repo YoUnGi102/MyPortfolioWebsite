@@ -1,3 +1,5 @@
+import { GithubLink } from '../components/Timeline.styles';
+
 export interface Project {
   year: number;
   title: string;
@@ -9,6 +11,15 @@ export interface Project {
 }
 
 const projects: Project[] = [
+  {
+    year: 2024,
+    title: 'color-house.eu',
+    description: 'E-shop management and administration.',
+    thumbnail: 'thumbnails/colorhouse.png',
+    technologies: ['SEO', 'JavaScript', 'CSS', 'HTML'],
+    githubLink: 'https://github.com/username/project-b',
+    fullDescription: 'This project',
+  },
   {
     year: 2023,
     title: 'HC Košice - Ticketing Portal',
@@ -30,43 +41,39 @@ const projects: Project[] = [
   },
   {
     year: 2022,
-    title: 'Project B',
-    description: 'A brief description of Project B.',
-    thumbnail:
-      'https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png',
-    technologies: ['Python', 'Django', 'PostgreSQL'],
-    githubLink: 'https://github.com/username/project-b',
+    title: 'ChadList',
+    description:
+      'A Semester project during my studies at VIA, where we designed and developed a platform for people to sell/give away unused items.',
+    thumbnail: 'education/via_logo.png',
+    technologies: [
+      'C#',
+      '.NET',
+      'Blazor',
+      'Java',
+      'gRPC',
+      'JPA/Hibernate',
+      'HTTP',
+      'RestAPI',
+    ],
+    githubLink: 'https://github.com/dragoselul/SEP3',
     fullDescription:
-      'This project was developed to streamline data analysis and processing workflows. ' +
-      'Using Python and Django, I built RESTful APIs and integrated them with a PostgreSQL database. ' +
-      'I also focused on optimizing database queries and implemented user authentication using Django’s built-in features. ' +
-      'The project allowed me to deepen my understanding of backend development and database optimization.',
+      'This project was developed by myself and my schoolmates as a Semester Project. The goal of the project was' +
+      'to create a system with a 3-tier architecture. Our project consisted of a Presentation Tier (made with Blazor and C#),' +
+      ' Business Tier (made with C#/.NET and HTTP with RestFul API) and Data Tier (made with Java, JPA/Hibernate and gRPC).',
   },
+
   {
-    year: 2021,
-    title: 'Project C',
-    description: 'A brief description of Project C.',
-    thumbnail: '/thumbnails/project-c.png',
-    technologies: ['React', 'Firebase', 'JavaScript'],
-    githubLink: 'https://github.com/username/project-c',
+    year: 2022,
+    title: 'Winter Store',
+    description:
+      'One of my semester projects, which was a management system for an imaginary company renting winter-season equipment',
+    thumbnail: 'education/via_logo.png',
+    technologies: ['Java', 'JavaFX', 'RMI'],
+    githubLink: 'https://github.com/YoUnGi102/WinterRentalStore',
     fullDescription:
-      'Project C was a personal project to build a task management application using React and Firebase. ' +
-      'The goal was to create a fully responsive web application where users could add, edit, and delete tasks, with real-time synchronization using Firebase Realtime Database. ' +
-      'I implemented authentication using Firebase Auth and used Firebase Hosting to deploy the application. ' +
-      'This project enhanced my knowledge of React and Firebase ecosystem.',
-  },
-  {
-    year: 2020,
-    title: 'Project D',
-    description: 'A brief description of Project D.',
-    thumbnail: '/thumbnails/project-d.png',
-    technologies: ['Java', 'Spring Boot', 'MySQL'],
-    githubLink: 'https://github.com/username/project-d',
-    fullDescription:
-      'Project D was a university project to develop a library management system. ' +
-      'Using Java and Spring Boot, I created a backend service that handled book inventory, user management, and borrowing records. ' +
-      'The application used a MySQL database to store data, and I implemented a RESTful API for front-end integration. ' +
-      'This project improved my skills in Java and Spring Boot, as well as my ability to design and implement REST APIs.',
+      'This project was developed by myself and my schoolmates as a Semester Project. The goal of the project was' +
+      'to create a system with a 3-tier architecture. Our project consisted of a Presentation Tier (made with Blazor and C#),' +
+      ' Business Tier (made with C#/.NET and HTTP with RestFul API) and Data Tier (made with Java, JPA/Hibernate and gRPC).',
   },
 ];
 
