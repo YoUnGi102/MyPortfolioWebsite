@@ -3,7 +3,7 @@ name: Build and Deploy to Build Branch
 on:
   push:
     branches:
-      - main # Trigger workflow when changes are pushed to main
+      - main
 
 jobs:
   build-and-deploy:
@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18 # Use your preferred Node.js version
+          node-version: 18
           cache: 'npm'
 
       # Step 3: Install Dependencies
@@ -27,28 +27,23 @@ jobs:
 
       # Step 4: Build the Project
       - name: Build Project
-        run: npm run build # Generates the dist folder
+        run: npm run build
 
-      # Step 5: Checkout Build Branch
-      - name: Checkout Build Branch
+      # Step 5: Debug Build Output
+      - name: Verify Dist Folder
+        run: ls -la ./dist
+
+      # Step 6: Copy All Files to Build Branch
+      - name: Copy Files Safely
         run: |
-          git fetch origin build
-          git checkout build || git checkout --orphan build
+          if [ -d "./dist" ]; then
+            cp -R ./dist/* ./
+          else
+            echo "Dist folder does not exist. Build process failed."
+            exit 1
+          fi
 
-      # Step 6: Clear Build Branch Contents
-      - name: Clear Build Branch
-        run: |
-          rm -rf ./*
-          rm -rf .[^.] .??* || true
-
-      # Step 7: Copy All Files to Build Branch
-      - name: Copy Files
-        run: |
-          cp -R ./dist/* ./ # Copy production files
-          cp -R ./src ./src # Optional: Copy source files
-          cp ./package.json ./ # Copy configs
-
-      # Step 8: Push Changes to Build Branch
+      # Step 7: Push to Build Branch
       - name: Push Changes
         run: |
           git add .
@@ -56,10 +51,3 @@ jobs:
           git push origin build --force
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # Step 9: Notify Hostinger Webhook
-      - name: Notify Hostinger Webhook
-        run: |
-          curl -X POST https://webhooks.hostinger.com/deploy/a82f445d610d674fd920018bca0f533e \
-            -H "Content-Type: application/json" \
-            -d '{"status":"success","branch":"build","timestamp":"'"$(date +'%Y-%m-%dT%H:%M:%S%z')"'" }'
