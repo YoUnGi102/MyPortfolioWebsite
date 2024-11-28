@@ -9,7 +9,7 @@ import {
 const AboutHeader: React.FC = () => {
   return (
     <Header>
-      <ProfileImage src="/profile.jpg" alt="Tomas Gres" />
+      <ProfileImage src="files/images/profile.jpg" alt="Tomas Gres" />
       <Title>Tomáš Greš</Title>
       <Subtitle>Software Engineer / Developer</Subtitle>
     </Header>
