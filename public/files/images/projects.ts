@@ -13,7 +13,7 @@ const projects: Project[] = [
     year: 2024,
     title: 'color-house.eu',
     description: 'E-shop management and administration.',
-    thumbnail: 'thumbnails/colorhouse.png',
+    thumbnail: 'files/images/colorhouse.png',
     technologies: ['SEO', 'JavaScript', 'CSS', 'HTML'],
     githubLink: 'https://github.com/username/project-b',
     fullDescription: 'This project',
@@ -22,7 +22,7 @@ const projects: Project[] = [
     year: 2023,
     title: 'HC Košice - Ticketing Portal',
     description: "A ticketing portal for a Košice's hockey club",
-    thumbnail: '/thumbnails/hckosice.png',
+    thumbnail: 'files/images/hckosice.png',
     technologies: [
       'React',
       'Node.js',
@@ -42,7 +42,7 @@ const projects: Project[] = [
     title: 'ChadList',
     description:
       'A Semester project during my studies at VIA, where we designed and developed a platform for people to sell/give away unused items.',
-    thumbnail: 'education/via_logo.png',
+    thumbnail: 'files/imgaes/via_logo.png',
     technologies: [
       'C#',
       '.NET',
@@ -65,7 +65,7 @@ const projects: Project[] = [
     title: 'Winter Store',
     description:
       'One of my semester projects, which was a management system for an imaginary company renting winter-season equipment',
-    thumbnail: 'education/via_logo.png',
+    thumbnail: 'files/images/via_logo.png',
     technologies: ['Java', 'JavaFX', 'RMI'],
     githubLink: 'https://github.com/YoUnGi102/WinterRentalStore',
     fullDescription:

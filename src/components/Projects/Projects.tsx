@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import projectsData, { Project } from '../../data/projects';
+import projectsData, { Project } from '../../../public/files/images/projects';
 import {
   ProjectsGrid,
   ProjectCard,

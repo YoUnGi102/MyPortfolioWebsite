@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import projects, { Project } from '../data/projects';
+import projects, { Project } from '../../public/files/images/projects';
 import {
   TimelineContainer,
   TimelineEntryContainer,
