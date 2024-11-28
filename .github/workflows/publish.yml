@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout Repository
-      - name: Checkout Repository
+      # Step 1: Checkout the Main Branch
+      - name: Checkout Main Branch
         uses: actions/checkout@v3
 
       # Step 2: Setup Node.js Environment
@@ -29,19 +29,37 @@ jobs:
       - name: Build Project
         run: npm run build # Generates the dist folder
 
-      # Step 5: Copy All Files to a Temporary Directory
-      - name: Prepare Files for Build Branch
+      # Step 5: Checkout Build Branch
+      - name: Checkout Build Branch
         run: |
-          mkdir -p /tmp/build
-          cp -R . /tmp/build # Copy all files (code, settings, etc.) to a temp directory
-          cp -R dist/* /tmp/build # Copy built production files into the temp directory
+          git fetch origin build
+          git checkout build || git checkout --orphan build
 
-      # Step 6: Push to Build Branch
-      - name: Deploy to Build Branch
-        uses: s0/git-publish-subdir-action@develop
+      # Step 6: Clear Build Branch Contents
+      - name: Clear Build Branch
+        run: |
+          rm -rf ./*
+          rm -rf .[^.] .??* || true
+
+      # Step 7: Copy All Files to Build Branch
+      - name: Copy Files
+        run: |
+          cp -R ./dist/* ./ # Copy production files
+          cp -R ./src ./src # Optional: Copy source files
+          cp ./package.json ./ # Copy configs
+
+      # Step 8: Push Changes to Build Branch
+      - name: Push Changes
+        run: |
+          git add .
+          git commit -m "Deploy build: $(date +'%Y-%m-%dT%H:%M:%S%z')"
+          git push origin build --force
         env:
-          REPO: self
-          BRANCH: build
-          FOLDER: /tmp/build # Push everything from the temp directory
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MESSAGE: "Build: {sha}"
+
+      # Step 9: Notify Hostinger Webhook
+      - name: Notify Hostinger Webhook
+        run: |
+          curl -X POST https://webhooks.hostinger.com/deploy/a82f445d610d674fd920018bca0f533e \
+            -H "Content-Type: application/json" \
+            -d '{"status":"success","branch":"build","timestamp":"'"$(date +'%Y-%m-%dT%H:%M:%S%z')"'" }'
