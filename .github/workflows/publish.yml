@@ -1,29 +1,40 @@
-name: Generate a build and push to another branch
+name: Build and Deploy to Build Branch
 
 on:
   push:
     branches:
-      - main # The branch name your are commit the new changes
+      - main # Trigger workflow when changes are pushed to main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    name: Build and Push
+
     steps:
-      - name: git-checkout
+      # Step 1: Checkout Repository
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Install all dependencies
+      # Step 2: Set up Node.js Environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18 # Use your preferred Node.js version
+          cache: 'npm'
+
+      # Step 3: Install Dependencies
+      - name: Install Dependencies
         run: npm install
 
-      - name: Build
-        run: npm run build # The build command of your project
+      # Step 4: Build the Project
+      - name: Build Project
+        run: npm run build # This will create the dist directory
 
-      - name: Push
+      # Step 5: Publish Dist Directory to Build Branch
+      - name: Deploy to Build Branch
         uses: s0/git-publish-subdir-action@develop
         env:
           REPO: self
-          BRANCH: build # The branch name where you want to push the assets
-          FOLDER: build # The directory where your assets are generated
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
-          MESSAGE: 'Build: ({sha}) {msg}' # The commit message
+          BRANCH: build # Target branch for the built assets
+          FOLDER: dist # Updated to point to the dist folder
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MESSAGE: 'Build: {sha}'
