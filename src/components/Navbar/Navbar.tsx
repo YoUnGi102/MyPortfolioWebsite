@@ -1,16 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   NavbarContainer,
   NavLinks,
   NavLink,
   NavbarTitle,
+  HamburgerMenu,
+  MobileMenu,
 } from './Navbar.styles';
 
 const Navbar: React.FC<{
   onNavigate: (sectionId: string) => void;
-}> = ({ onNavigate }) => {
+  onMenuToggle?: (menuHeight: number) => void; // Notify about menu height
+}> = ({ onNavigate, onMenuToggle }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,19 +32,54 @@ const Navbar: React.FC<{
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
+  useEffect(() => {
+    if (onMenuToggle && mobileMenuRef.current) {
+      const menuHeight = isMobileMenuOpen
+        ? mobileMenuRef.current.offsetHeight
+        : 0;
+      onMenuToggle(menuHeight); // Pass height to parent
+    }
+  }, [isMobileMenuOpen, onMenuToggle]);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen((prev) => !prev);
+  };
+
+  const handleNavigation = (sectionId: string) => {
+    onNavigate(sectionId);
+    setIsMobileMenuOpen(false); // Close menu after navigation
+  };
+
   return (
     <NavbarContainer isVisible={isVisible}>
       <NavbarTitle>My Portfolio</NavbarTitle>
+      <HamburgerMenu onClick={toggleMobileMenu}>
+        {isMobileMenuOpen ? '✖' : '☰'}
+      </HamburgerMenu>
       <NavLinks>
-        <NavLink onClick={() => onNavigate('about')}>About Me</NavLink>
-        <NavLink onClick={() => onNavigate('skills')}>Skills</NavLink>
-        <NavLink onClick={() => onNavigate('experience')}>
+        <NavLink onClick={() => handleNavigation('about')}>About Me</NavLink>
+        <NavLink onClick={() => handleNavigation('skills')}>Skills</NavLink>
+        <NavLink onClick={() => handleNavigation('experience')}>
           Work Experience
         </NavLink>
-        <NavLink onClick={() => onNavigate('education')}>Education</NavLink>
-        <NavLink onClick={() => onNavigate('projects')}>Projects</NavLink>
-        <NavLink onClick={() => onNavigate('hobbies')}>Hobbies</NavLink>
+        <NavLink onClick={() => handleNavigation('education')}>
+          Education
+        </NavLink>
+        <NavLink onClick={() => handleNavigation('projects')}>Projects</NavLink>
+        <NavLink onClick={() => handleNavigation('hobbies')}>Hobbies</NavLink>
       </NavLinks>
+      <MobileMenu ref={mobileMenuRef} isOpen={isMobileMenuOpen}>
+        <NavLink onClick={() => handleNavigation('about')}>About Me</NavLink>
+        <NavLink onClick={() => handleNavigation('skills')}>Skills</NavLink>
+        <NavLink onClick={() => handleNavigation('experience')}>
+          Work Experience
+        </NavLink>
+        <NavLink onClick={() => handleNavigation('education')}>
+          Education
+        </NavLink>
+        <NavLink onClick={() => handleNavigation('projects')}>Projects</NavLink>
+        <NavLink onClick={() => handleNavigation('hobbies')}>Hobbies</NavLink>
+      </MobileMenu>
     </NavbarContainer>
   );
 };

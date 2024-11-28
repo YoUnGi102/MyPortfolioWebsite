@@ -31,6 +31,9 @@ const hobbies = [
   },
 ];
 
+// TODO move data to data folder
+// TODO Add nicer view / pictures for hobbies
+
 const Hobbies: React.FC = () => {
   return (
     <Section>

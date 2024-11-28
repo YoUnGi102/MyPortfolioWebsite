@@ -1,15 +1,20 @@
-import React from 'react';
-// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { useState } from 'react';
+import Navbar from './components/Navbar/Navbar';
 import AboutMe from './components/AboutMe/AboutMe';
-import Footer from './components/Footer/Footer';
-import './App.css';
 
 const App: React.FC = () => {
+  const [menuHeight, setMenuHeight] = useState(0);
+
   return (
     <>
-      <div>Hello World</div>
-      <AboutMe />
-      <Footer />
+      <Navbar
+        onNavigate={(sectionId: any) => {
+          const section = document.getElementById(sectionId);
+          section?.scrollIntoView({ behavior: 'smooth' });
+        }}
+        onMenuToggle={(height: any) => setMenuHeight(height)}
+      />
+      <AboutMe menuHeight={menuHeight} />
     </>
   );
 };

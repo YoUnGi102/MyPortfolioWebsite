@@ -2,44 +2,80 @@ import styled from 'styled-components';
 
 export const NavbarContainer = styled.div<{ isVisible: boolean }>`
   position: fixed;
+  box-sizing: border-box;
   top: 0;
   left: 0;
-  box-sizing: border-box;
   width: 100%;
-  height: 60px;
-  background-color: #333333;
-  color: #ffffff;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
-  z-index: 9999;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
-
-  transform: ${({ isVisible }) =>
+  transform: ${({ isVisible }: any) =>
     isVisible ? 'translateY(0)' : 'translateY(-100%)'};
+  z-index: 1000;
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
 `;
 
-export const NavbarTitle = styled.div`
+export const NavbarTitle = styled.h1`
   font-size: 1.5em;
-  font-weight: bold;
+  margin: 0;
 `;
 
 export const NavLinks = styled.div`
   display: flex;
   gap: 15px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const NavLink = styled.button`
   background: none;
   border: none;
-  color: #ffffff;
+  color: #fff;
   font-size: 1em;
   cursor: pointer;
-  transition: color 0.2s;
+  text-decoration: none;
 
   &:hover {
     color: #35bcbf;
+  }
+`;
+
+export const HamburgerMenu = styled.button`
+  display: none;
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
+
+export const MobileMenu = styled.div<{ isOpen: boolean }>`
+  display: ${({ isOpen }: any) => (isOpen ? 'flex' : 'none')};
+  flex-direction: column;
+  gap: 15px;
+  position: absolute;
+  box-sizing: border-box;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 20px;
+  z-index: 999;
+
+  @media (min-width: 769px) {
+    display: none;
   }
 `;

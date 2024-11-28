@@ -6,6 +6,9 @@ import {
 } from './WorkExperience.styles';
 import { Section, SectionTitle, StyledText } from '../AboutMe/AboutMe.styles';
 
+// TODO Move data to data folder
+// TODO Add real work experience
+
 const WorkExperience: React.FC = () => {
   return (
     <Section>

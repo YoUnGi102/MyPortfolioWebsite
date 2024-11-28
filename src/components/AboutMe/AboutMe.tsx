@@ -9,7 +9,9 @@ import Navbar from '../Navbar/Navbar';
 import CVDownloadButton from '../CVDownloadButton/CVDownloadButton';
 import { AboutContainer } from './AboutMe.styles';
 
-const AboutMe: React.FC = () => {
+// TODO Add more skills
+
+const AboutMe: React.FC<{ menuHeight: number }> = ({ menuHeight }: any) => {
   const aboutRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
   const experienceRef = useRef<HTMLDivElement>(null);
@@ -35,8 +37,7 @@ const AboutMe: React.FC = () => {
 
   return (
     <>
-      <Navbar onNavigate={handleNavigate} />
-      <AboutContainer>
+      <AboutContainer menuHeight={menuHeight}>
         <div ref={aboutRef}>
           <AboutHeader />
         </div>

@@ -7,6 +7,8 @@ import {
 } from '../AboutMe/AboutMe.styles';
 
 const AboutHeader: React.FC = () => {
+  // TODO Add more information about myself
+
   return (
     <Header>
       <ProfileImage src="files/images/profile.jpg" alt="Tomas Gres" />

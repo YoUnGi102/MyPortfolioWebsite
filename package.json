@@ -19,6 +19,7 @@
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.27.0",
     "react-scroll": "^1.9.0",
+    "react-swipeable": "^7.0.2",
     "sass": "^1.79.3",
     "styled-components": "^6.1.13"
   },

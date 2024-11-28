@@ -1,94 +1,153 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
-export const ProjectsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+export const CarouselContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
   width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
 `;
 
-export const ProjectCard = styled.div`
+export const CarouselContent = styled.div<{ currentIndex: number }>`
+  display: flex;
+  width: 90%;
+  margin: 0 5%;
+  transition: transform 0.5s ease-in-out;
+  transform: ${({ currentIndex }) => `translateX(-${currentIndex * 100}%)`};
+`;
+
+export const CarouselCard = styled.div<{ isActive: boolean }>`
+  flex: 0 0 100%; /* Full width for each card */
+  opacity: ${({ isActive }) => (isActive ? 1 : 0)};
+  transform: ${({ isActive }) => (isActive ? 'scale(1)' : 'scale(0.9)')};
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
   background-color: #333;
   border-radius: 8px;
-  overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s;
+  overflow: hidden;
+  height: 450px;
+  box-sizing: border-box;
+`;
+
+export const SideButton = styled.button<{ direction: 'left' | 'right' }>`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  ${({ direction }) => (direction === 'left' ? 'left: 0;' : 'right: 0;')}
+  width: 30px;
+  background-color: rgba(35, 35, 35, 0.5);
+  color: #fff;
+  border: none;
   cursor: pointer;
+  display: flex;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  z-index: 1; /* Ensure buttons are above other content */
 
   &:hover {
-    transform: scale(1.03);
+    background-color: rgba(53, 188, 191, 0.8);
+  }
+
+  &:active {
+    background-color: rgba(53, 188, 191, 1);
+  }
+`;
+
+export const CarouselDots = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+`;
+
+export const CarouselDot = styled.button<{ isActive: boolean }>`
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: ${({ isActive }) => (isActive ? '#35bcbf' : '#ccc')};
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #35bcbf;
   }
 `;
 
 export const ProjectThumbnail = styled.img`
   width: 100%;
-  height: 150px;
+  max-width: 300px;
+  height: 200px;
+  border-radius: 8px;
   object-fit: cover;
+  margin-bottom: 15px;
 `;
 
 export const ProjectInfo = styled.div`
-  padding: 10px;
   text-align: center;
+  color: #fff;
 `;
 
 export const ProjectTitle = styled.h3`
-  font-size: 1.2em;
-  color: #f5f5f5;
-  margin: 0 0 5px;
+  font-size: 1.5rem;
+  margin: 0 0 10px;
 `;
 
 export const ProjectDescription = styled.p`
-  font-size: 0.9em;
+  font-size: 0.9rem;
   color: #ccc;
   margin: 0;
 `;
 
-/* Modal Styles */
+// Modal animation
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
+
 export const ModalOverlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  animation: ${fadeIn} 0.3s ease-in-out;
 `;
 
 export const ModalContent = styled.div`
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
+  background-color: #333;
+  color: #fff;
   width: 90%;
-  max-width: 600px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  border-radius: 8px;
+  padding: 20px;
   position: relative;
-
-  h2 {
-    margin-top: 0;
-    color: #333;
-  }
-
-  p {
-    font-size: 1em;
-    color: #555;
-    margin: 10px 0 20px;
-  }
-
-  a {
-    display: inline-block;
-    margin-top: 20px;
-    color: #35bcbf;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-
-    &:hover {
-      color: #2ba9a8;
-    }
-  }
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  animation: ${fadeIn} 0.3s ease-in-out;
 `;
 
 export const ModalCloseButton = styled.button`
@@ -97,65 +156,13 @@ export const ModalCloseButton = styled.button`
   right: 10px;
   background: none;
   border: none;
-  font-size: 1.5em;
+  color: #fff;
+  font-size: 1.5rem;
   cursor: pointer;
-  color: #333;
+  transition: color 0.3s;
 
   &:hover {
-    color: #000;
-  }
-`;
-
-export const ModalHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #444;
-  padding-bottom: 10px;
-
-  h2 {
-    margin: 0;
-    font-size: 1.8em;
-    color: #35bcbf; /* Accent color for the title */
-  }
-
-  button {
-    background: none;
-    border: none;
-    font-size: 1.5em;
-    color: #f5f5f5;
-    cursor: pointer;
-    transition: color 0.3s;
-
-    &:hover {
-      color: #fff;
-    }
-  }
-`;
-
-export const ModalBody = styled.div`
-  p {
-    font-size: 1em;
-    color: #ccc;
-    margin: 0;
-    line-height: 1.6;
-  }
-`;
-
-export const ModalFooter = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  a {
     color: #35bcbf;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-
-    &:hover {
-      color: #2ba9a8;
-    }
   }
 `;
 
@@ -165,16 +172,18 @@ export const ModalTechnologies = styled.div`
   strong {
     display: block;
     margin-bottom: 10px;
-    color: #35bcbf; /* Accent color for technologies section */
+    color: #fff;
+    font-size: 1.2em;
   }
 
   ul {
-    list-style: disc;
     padding-left: 20px;
+    list-style: disc;
 
     li {
-      font-size: 0.9em;
+      margin-bottom: 5px;
       color: #ccc;
+      font-size: 1em;
     }
   }
 `;

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export const AboutContainer = styled.div`
-  width: 80%;
-  margin: 60px auto;
+export const AboutContainer = styled.div<{ menuHeight: number }>`
+  margin-top: ${({ menuHeight }: any) => `${menuHeight + 40}px`};
   padding: 20px;
+  transition: margin-top 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
   gap: 40px;
