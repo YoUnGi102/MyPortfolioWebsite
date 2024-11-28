@@ -23,7 +23,7 @@ const Education: React.FC = () => {
             rel="noopener noreferrer"
           >
             <img
-              src="files/imgaes/via_logo.png"
+              src="files/images/via_logo.png"
               alt="VIA University College Logo"
             />
           </InstitutionLogo>

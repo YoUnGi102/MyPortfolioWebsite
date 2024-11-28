@@ -42,7 +42,7 @@ const projects: Project[] = [
     title: 'ChadList',
     description:
       'A Semester project during my studies at VIA, where we designed and developed a platform for people to sell/give away unused items.',
-    thumbnail: 'files/imgaes/via_logo.png',
+    thumbnail: 'files/images/via_logo.png',
     technologies: [
       'C#',
       '.NET',
