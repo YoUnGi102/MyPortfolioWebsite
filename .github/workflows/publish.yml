@@ -29,9 +29,11 @@ jobs:
       - name: Build Project
         run: npm run build
 
-      # Step 5: Debug Build Output
-      - name: Verify Dist Folder
-        run: ls -la ./dist
+      # Step 5: Configure Git User
+      - name: Configure Git User
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
 
       # Step 6: Copy All Files to Build Branch
       - name: Copy Files Safely
@@ -43,7 +45,7 @@ jobs:
             exit 1
           fi
 
-      # Step 7: Push to Build Branch
+      # Step 7: Push Changes to Build Branch
       - name: Push Changes
         run: |
           git add .
