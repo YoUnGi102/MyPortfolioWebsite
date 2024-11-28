@@ -14,7 +14,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js Environment
+      # Step 2: Setup Node.js Environment
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -27,14 +27,21 @@ jobs:
 
       # Step 4: Build the Project
       - name: Build Project
-        run: npm run build # This will create the dist directory
+        run: npm run build # Generates the dist folder
 
-      # Step 5: Publish Dist Directory to Build Branch
+      # Step 5: Copy All Files to a Temporary Directory
+      - name: Prepare Files for Build Branch
+        run: |
+          mkdir -p /tmp/build
+          cp -R . /tmp/build # Copy all files (code, settings, etc.) to a temp directory
+          cp -R dist/* /tmp/build # Copy built production files into the temp directory
+
+      # Step 6: Push to Build Branch
       - name: Deploy to Build Branch
         uses: s0/git-publish-subdir-action@develop
         env:
           REPO: self
-          BRANCH: build # Target branch for the built assets
-          FOLDER: dist # Updated to point to the dist folder
+          BRANCH: build
+          FOLDER: /tmp/build # Push everything from the temp directory
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MESSAGE: 'Build: {sha}'
+          MESSAGE: "Build: {sha}"
