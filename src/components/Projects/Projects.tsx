@@ -1,26 +1,18 @@
 import React, { useState } from 'react';
-import { useSwipeable } from 'react-swipeable'; // Import the library
 import projectsData, { Project } from '../../data/projects';
 import {
   CarouselContainer,
-  CarouselContent,
+  Carousel3DContent,
   CarouselCard,
-  SideButton,
-  CarouselDots,
-  CarouselDot,
   ProjectThumbnail,
   ProjectInfo,
   ProjectTitle,
   ProjectDescription,
-  ModalOverlay,
-  ModalContent,
-  ModalCloseButton,
-  ModalTechnologies,
+  CarouselButton,
 } from './Projects.styles';
 import { Section, SectionTitle } from '../AboutMe/AboutMe.styles';
 
 const Projects: React.FC = () => {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
@@ -35,38 +27,23 @@ const Projects: React.FC = () => {
     );
   };
 
-  const handleDotClick = (index: number) => {
-    setCurrentIndex(index);
-  };
-
-  const handleCardClick = (project: Project) => {
-    setSelectedProject(project);
-  };
-
-  const closeModal = () => {
-    setSelectedProject(null);
-  };
-
-  // Configure swipe handlers
-  const swipeHandlers = useSwipeable({
-    onSwipedLeft: handleNext, // Swipe left moves to the next project
-    onSwipedRight: handlePrev, // Swipe right moves to the previous project
-    trackMouse: true, // Optional: Enables mouse dragging for desktop
-  });
-
   return (
     <Section>
       <SectionTitle>Projects</SectionTitle>
-      <CarouselContainer {...swipeHandlers}>
-        <SideButton direction="left" onClick={handlePrev}>
+      <CarouselContainer>
+        <CarouselButton onClick={handlePrev} direction="left">
           {'<'}
-        </SideButton>
-        <CarouselContent currentIndex={currentIndex}>
+        </CarouselButton>
+        <Carousel3DContent
+          totalItems={projectsData.length}
+          currentIndex={currentIndex}
+        >
           {projectsData.map((project, index) => (
             <CarouselCard
               key={index}
-              isActive={index === currentIndex}
-              onClick={() => handleCardClick(project)}
+              index={index}
+              currentIndex={currentIndex}
+              totalItems={projectsData.length}
             >
               <ProjectThumbnail src={project.thumbnail} alt={project.title} />
               <ProjectInfo>
@@ -75,50 +52,11 @@ const Projects: React.FC = () => {
               </ProjectInfo>
             </CarouselCard>
           ))}
-        </CarouselContent>
-        <SideButton direction="right" onClick={handleNext}>
+        </Carousel3DContent>
+        <CarouselButton onClick={handleNext} direction="right">
           {'>'}
-        </SideButton>
+        </CarouselButton>
       </CarouselContainer>
-
-      {/* Dots Navigation */}
-      <CarouselDots>
-        {projectsData.map((_, index) => (
-          <CarouselDot
-            key={index}
-            isActive={index === currentIndex}
-            onClick={() => handleDotClick(index)}
-          />
-        ))}
-      </CarouselDots>
-
-      {/* Modal for showing project details */}
-      {selectedProject && (
-        <ModalOverlay onClick={closeModal}>
-          <ModalContent onClick={(e) => e.stopPropagation()}>
-            <ModalCloseButton onClick={closeModal}>&times;</ModalCloseButton>
-            <h2>{selectedProject.title}</h2>
-            <p>{selectedProject.fullDescription}</p>
-            <ModalTechnologies>
-              <strong>Technologies Used:</strong>
-              <ul>
-                {selectedProject.technologies.map((tech, index) => (
-                  <li key={index}>{tech}</li>
-                ))}
-              </ul>
-            </ModalTechnologies>
-            {selectedProject.githubLink && (
-              <a
-                href={selectedProject.githubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on GitHub
-              </a>
-            )}
-          </ModalContent>
-        </ModalOverlay>
-      )}
     </Section>
   );
 };
