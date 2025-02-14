@@ -21,7 +21,7 @@ export const Carousel3DContent = styled.div<{
     `rotateY(${(currentIndex * 360) / totalItems}deg)`};
   transition: transform 0.8s ease-in-out;
   width: 100%;
-  height: 400px;
+  height: 500px;
 `;
 
 export const CarouselCard = styled.div<{
@@ -31,7 +31,7 @@ export const CarouselCard = styled.div<{
 }>`
   position: absolute;
   width: 300px;
-  height: 200px;
+  height: 300px;
   background-color: #333;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
