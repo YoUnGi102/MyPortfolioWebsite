@@ -11,11 +11,14 @@ const skills: Skill[] = [
   { name: 'PostgreSQL', stars: 4 },
   { name: 'Python', stars: 5 },
   { name: 'Express.js', stars: 4 },
-  { name: 'Ajax', stars: 4 },
-  { name: 'CI/CD', stars: 4 },
-  { name: 'Kubernetes', stars: 3 },
-  { name: 'C#', stars: 2 },
+  { name: 'CI/CD', stars: 2 },
+  { name: 'C# / .NET', stars: 3 },
   { name: 'C', stars: 1 },
+  { name: 'Java', stars: 4 },
+  { name: 'SQL', stars: 4 },
+  { name: 'JavaScript', stars: 4 },
+  { name: 'Django', stars: 2 },
+  { name: 'Git', stars: 4 },
 ];
 
 export default skills;

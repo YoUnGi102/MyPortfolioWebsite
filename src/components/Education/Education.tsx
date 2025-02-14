@@ -29,7 +29,10 @@ const Education: React.FC = () => {
           </InstitutionLogo>
           <EducationDetails>
             <Institution>VIA University College Horsens</Institution>
-            <Program>Software Technology Engineering</Program>
+            <Program>
+              Software Technology Engineering with Data Engineering
+              specialisation
+            </Program>
             <Location>Horsens, Denmark</Location>
             <Duration>Sep 2021 - Jan 2025</Duration>
           </EducationDetails>

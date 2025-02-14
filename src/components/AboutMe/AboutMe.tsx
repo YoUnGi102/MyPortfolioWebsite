@@ -37,6 +37,7 @@ const AboutMe: React.FC<{ menuHeight: number }> = ({ menuHeight }: any) => {
 
   return (
     <>
+      <Navbar onNavigate={handleNavigate} />
       <AboutContainer menuHeight={menuHeight}>
         <div ref={aboutRef}>
           <AboutHeader />

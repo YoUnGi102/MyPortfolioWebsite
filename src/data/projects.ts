@@ -16,7 +16,8 @@ const projects: Project[] = [
     thumbnail: 'files/images/colorhouse.png',
     technologies: ['SEO', 'JavaScript', 'CSS', 'HTML'],
     githubLink: 'https://github.com/username/project-b',
-    fullDescription: 'This project',
+    fullDescription:
+      "I'm collaborating with the store owner to enhance the eShop's visibility and attract more customers by improving its development, optimizing performance, and implementing effective digital strategies.",
   },
   {
     year: 2023,
