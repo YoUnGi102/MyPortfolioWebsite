@@ -5,8 +5,8 @@
     'logo location type'
     'logo major major'
     'logo duration duration';
-  grid-template-columns: repeat(3, auto-fit);
-  grid-template-rows: repeat(4, auto-fit);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 120px 50px 50px 100px;
   border: 1px solid #e5e7eb;
   border-radius: 3rem;
   padding: 3rem;
@@ -18,6 +18,8 @@
 }
 
 .education-card > img.logo {
+  max-width: 200px;
+  height: auto;
   align-self: center;
   grid-area: logo;
   text-align: center;
@@ -26,6 +28,7 @@
   font-size: 2rem;
   grid-area: institution;
   text-align: left;
+  justify-self: start;
 }
 .education-card > p.major {
   grid-area: major;
@@ -35,14 +38,17 @@
   grid-area: duration;
   text-align: right;
   transform: skewX(-20deg);
+  align-self: self-end;
 }
 .education-card p.type {
   grid-area: type;
   text-align: right;
   transform: skewX(-20deg);
+  align-self: self-end;
 }
 .education-card p.location {
   grid-area: location;
+  align-self: self-end;
 }
 
 @media (max-width: 966px) {
@@ -54,6 +60,7 @@
       'type location'
       'duration duration';
     grid-template-rows: repeat(5, auto);
+    grid-template-columns: 1fr;
     row-gap: 1rem;
   }
 
@@ -64,6 +71,7 @@
   .education-card > strong.institution {
     font-size: 1.5rem;
     text-align: center;
+    justify-self: center;
   }
   .education-card > p.major {
     text-align: center;
