@@ -1,0 +1,34 @@
+.Content {
+  margin-top: 54px;
+}
+.SkillsCard {
+  display: 'flex';
+  width: 200px;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+/* .SkillsCard:hover {
+  color: black;
+  background-color: black;
+} */
+
+.section-container {
+  width: 80%;
+  margin: auto;
+}
+
+@media (max-width: 1444px) {
+  .section-container {
+    width: 100%;
+    margin: 0;
+  }
+
+  .SkillsCard {
+    width: 80%;
+    margin: 20px;
+  }
+}

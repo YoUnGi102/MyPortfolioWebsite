@@ -1,0 +1,56 @@
+.education-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 3rem;
+  padding: 3.75rem;
+  background-color: white;
+  box-shadow: 0 0.1875rem 0.375rem rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+  max-width: 112.5rem;
+}
+
+.education-card:hover {
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.08);
+}
+
+.education-header {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 2.25rem;
+}
+
+.education-logo {
+  width: 9rem;
+  height: 9rem;
+  object-fit: contain;
+}
+
+.education-institution {
+  font-size: 3.375rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.education-type {
+  font-size: 2.625rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.education-major {
+  font-size: 3rem;
+  color: #374151;
+  margin-bottom: 0.75rem;
+}
+
+.education-location {
+  font-size: 2.625rem;
+  color: #4b5563;
+  margin-bottom: 0.75rem;
+}
+
+.education-dates {
+  font-size: 2.4375rem;
+  color: #9ca3af;
+}

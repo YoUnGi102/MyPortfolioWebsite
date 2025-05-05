@@ -13,11 +13,11 @@ export const NavbarContainer = styled.div<{ isVisible: boolean }>`
   justify-content: space-between;
   align-items: center;
   transition: transform 0.3s ease-in-out;
-  transform: ${({ isVisible }: any) =>
+  transform: ${({ isVisible }) =>
     isVisible ? 'translateY(0)' : 'translateY(-100%)'};
   z-index: 1000;
 
-  @media (max-width: 768px) {
+  @media (max-width: 966px) {
     padding: 10px;
   }
 `;
@@ -31,7 +31,7 @@ export const NavLinks = styled.div`
   display: flex;
   gap: 15px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 966px) {
     display: none;
   }
 `;
@@ -57,15 +57,17 @@ export const HamburgerMenu = styled.button`
   color: #fff;
   cursor: pointer;
 
-  @media (max-width: 768px) {
+  @media (max-width: 966px) {
     display: block;
   }
 `;
 
 export const MobileMenu = styled.div<{ isOpen: boolean }>`
-  display: ${({ isOpen }: any) => (isOpen ? 'flex' : 'none')};
+  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+  margin-top: 31px;
+  padding: 30px 0;
   flex-direction: column;
-  gap: 15px;
+  gap: 30px;
   position: absolute;
   box-sizing: border-box;
   top: 50px;
@@ -75,7 +77,7 @@ export const MobileMenu = styled.div<{ isOpen: boolean }>`
   padding: 20px;
   z-index: 999;
 
-  @media (min-width: 769px) {
+  @media (min-width: 967px) {
     display: none;
   }
 `;

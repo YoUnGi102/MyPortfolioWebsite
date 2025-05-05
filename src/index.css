@@ -1,3 +1,27 @@
 body {
-  background-color: #383838;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+html {
+  font-size: 5rem;
+}
+@media (max-width: 3000px) {
+  html {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 2560px) {
+  html {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 1920px) {
+  html {
+    font-size: 1.6rem;
+  }
 }

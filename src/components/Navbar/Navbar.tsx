@@ -7,11 +7,13 @@ import {
   HamburgerMenu,
   MobileMenu,
 } from './Navbar.styles';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar: React.FC<{
-  onNavigate: (sectionId: string) => void;
   onMenuToggle?: (menuHeight: number) => void; // Notify about menu height
-}> = ({ onNavigate, onMenuToggle }) => {
+}> = ({ onMenuToggle }) => {
+  const navigate = useNavigate();
+
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -37,7 +39,7 @@ const Navbar: React.FC<{
       const menuHeight = isMobileMenuOpen
         ? mobileMenuRef.current.offsetHeight
         : 0;
-      onMenuToggle(menuHeight); // Pass height to parent
+      onMenuToggle(menuHeight);
     }
   }, [isMobileMenuOpen, onMenuToggle]);
 
@@ -46,7 +48,7 @@ const Navbar: React.FC<{
   };
 
   const handleNavigation = (sectionId: string) => {
-    onNavigate(sectionId);
+    navigate(sectionId);
     setIsMobileMenuOpen(false); // Close menu after navigation
   };
 
@@ -57,28 +59,22 @@ const Navbar: React.FC<{
         {isMobileMenuOpen ? '✖' : '☰'}
       </HamburgerMenu>
       <NavLinks>
-        <NavLink onClick={() => handleNavigation('about')}>About Me</NavLink>
-        <NavLink onClick={() => handleNavigation('skills')}>Skills</NavLink>
-        <NavLink onClick={() => handleNavigation('experience')}>
-          Work Experience
-        </NavLink>
+        <NavLink onClick={() => handleNavigation('about-me')}>About Me</NavLink>
         <NavLink onClick={() => handleNavigation('education')}>
           Education
         </NavLink>
-        <NavLink onClick={() => handleNavigation('projects')}>Projects</NavLink>
-        <NavLink onClick={() => handleNavigation('hobbies')}>Hobbies</NavLink>
+        <NavLink onClick={() => handleNavigation('experience')}>
+          Experience
+        </NavLink>
       </NavLinks>
       <MobileMenu ref={mobileMenuRef} isOpen={isMobileMenuOpen}>
-        <NavLink onClick={() => handleNavigation('about')}>About Me</NavLink>
-        <NavLink onClick={() => handleNavigation('skills')}>Skills</NavLink>
-        <NavLink onClick={() => handleNavigation('experience')}>
-          Work Experience
-        </NavLink>
+        <NavLink onClick={() => handleNavigation('about-me')}>About Me</NavLink>
         <NavLink onClick={() => handleNavigation('education')}>
           Education
         </NavLink>
-        <NavLink onClick={() => handleNavigation('projects')}>Projects</NavLink>
-        <NavLink onClick={() => handleNavigation('hobbies')}>Hobbies</NavLink>
+        <NavLink onClick={() => handleNavigation('experience')}>
+          Experience
+        </NavLink>
       </MobileMenu>
     </NavbarContainer>
   );

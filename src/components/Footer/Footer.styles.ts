@@ -15,8 +15,10 @@ export const SocialIcons = styled.div`
   display: flex;
   gap: 20px;
   justify-content: center;
+  flex-direction: row;
 
   a {
+    margin: 0 20px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -26,6 +28,18 @@ export const SocialIcons = styled.div`
 
     &:hover {
       color: #aaa;
+    }
+  }
+
+  a > * {
+    margin: 0 5px;
+  }
+
+  @media (max-width: 766px) {
+    flex-direction: column;
+
+    a {
+      justify-content: center;
     }
   }
 `;

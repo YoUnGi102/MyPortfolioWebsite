@@ -1,0 +1,20 @@
+.star-container {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  margin: 20px;
+}
+
+.star-icon {
+  width: 24px;
+  height: 24px;
+  stroke: black;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.star-icon.filled {
+  fill: black;
+}
