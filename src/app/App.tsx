@@ -15,7 +15,7 @@ const App: React.FC = () => {
       <Navbar onMenuToggle={(height: number) => setMenuHeight(height)} />
       <div
         className="container"
-        style={{ marginTop: `${menuHeight * 0.1 + 10}%` }}>
+        style={{ marginTop: `${menuHeight + 100}px` }}>
         <Routes>
           <Route path="/about-me" element={<AboutMe />} />
           <Route path="/education" element={<EducationAndCourses />} />

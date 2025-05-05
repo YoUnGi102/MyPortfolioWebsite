@@ -35,12 +35,27 @@ const Navbar: React.FC<{
   }, [lastScrollY]);
 
   useEffect(() => {
-    if (onMenuToggle && mobileMenuRef.current) {
-      const menuHeight = isMobileMenuOpen
-        ? mobileMenuRef.current.offsetHeight
-        : 0;
-      onMenuToggle(menuHeight);
-    }
+    const updateMenuHeight = () => {
+      if (onMenuToggle && mobileMenuRef.current) {
+        const menuHeight = mobileMenuRef.current.offsetHeight;
+        onMenuToggle(menuHeight);
+      }
+    };
+
+    // Call onMenuToggle when the mobile menu state changes
+    updateMenuHeight();
+
+    // Call onMenuToggle on window resize
+    const handleResize = () => {
+      updateMenuHeight();
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, [isMobileMenuOpen, onMenuToggle]);
 
   const toggleMobileMenu = () => {
@@ -53,7 +68,7 @@ const Navbar: React.FC<{
   };
 
   return (
-    <NavbarContainer isVisible={isVisible}>
+    <NavbarContainer ref={mobileMenuRef} isVisible={isVisible}>
       <NavbarTitle>My Portfolio</NavbarTitle>
       <HamburgerMenu onClick={toggleMobileMenu}>
         {isMobileMenuOpen ? '✖' : '☰'}
@@ -67,7 +82,7 @@ const Navbar: React.FC<{
           Experience
         </NavLink>
       </NavLinks>
-      <MobileMenu ref={mobileMenuRef} isOpen={isMobileMenuOpen}>
+      <MobileMenu isOpen={isMobileMenuOpen}>
         <NavLink onClick={() => handleNavigation('about-me')}>About Me</NavLink>
         <NavLink onClick={() => handleNavigation('education')}>
           Education
