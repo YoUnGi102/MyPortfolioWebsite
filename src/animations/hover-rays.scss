@@ -1,0 +1,42 @@
+$w: 4vmin;
+$r: 50%;
+$o: 0.5 * (100% + $r) - $r;
+
+@property --k {
+  syntax: '<number>';
+  initial-value: 0;
+  inherits: false;
+}
+
+// body {
+// 	display: grid;
+// 	margin: 0;
+// 	height: 100vh;
+// }
+
+.hover-rays {
+  --k: 0;
+  --j: calc(1 - var(--k));
+  --list: transparent calc(50% - #{$w}), red 0 calc(50% + #{$w}), transparent 0;
+  place-self: center;
+  object-fit: cover;
+  width: 90vmin;
+  height: 90vmin;
+  filter: grayScale(var(--j));
+  mask: radial-gradient(closest-side, red calc(#{$r} - 1px), transparent #{$r}),
+    radial-gradient(
+      closest-side,
+      transparent calc(#{$r} - #{$o} + var(--k) * 2 *#{$o} - 1px),
+      red calc(#{$r} - #{$o} + var(--k) * 2 *#{$o})
+        calc(var(--k) * 100% + var(--j) *#{$r} - 1px),
+      transparent calc(var(--k) * 100% + var(--j) *#{$r})
+    ),
+    linear-gradient(var(--list)), linear-gradient(90deg, var(--list)),
+    linear-gradient(45deg, var(--list)), linear-gradient(-45deg, var(--list));
+  mask-composite: add, intersect, add, add;
+  transition: --k 0.2s ease-out;
+
+  &:hover {
+    --k: 1;
+  }
+}

@@ -1,0 +1,60 @@
+.course-card {
+  display: grid;
+  text-align: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 100px auto auto auto;
+  grid-template-areas:
+    'title title'
+    'thumbnail thumbnail'
+    'achieved verify'
+    'logo logo';
+  background: #f5f5f5;
+  border-radius: 25px;
+  gap: 2rem;
+  padding: 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.course-card > img.logo {
+  grid-area: logo;
+  width: 40%;
+  margin: 30px auto;
+}
+.course-card > strong.title {
+  grid-area: title;
+  font-size: 1.5rem;
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+}
+.course-card > img.thumbnail {
+  grid-area: thumbnail;
+  max-width: 80%;
+  justify-self: center;
+}
+.course-card > p.achieved {
+  grid-area: achieved;
+  text-align: left;
+  justify-self: start;
+  transform: skewX(-15deg);
+}
+.course-card > a.verify {
+  grid-area: verify;
+  justify-self: end;
+  text-decoration: none;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: blue;
+  color: white;
+}
+
+.course-card > .verify:hover {
+  background-color: white;
+  color: blue;
+}
+
+@media (min-width: 966px) {
+  .course-card {
+    grid-template-columns: 1fr;
+  }
+}

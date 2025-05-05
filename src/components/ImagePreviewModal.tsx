@@ -1,7 +1,13 @@
 import { useState } from 'react';
 import './ImagePreviewModal.css';
 
-const ImagePreviewModal = ({ src, alt = 'Preview image' }: {src: string, alt: string}) => {
+const ImagePreviewModal = ({
+  src,
+  alt = 'Preview image',
+}: {
+  src: string;
+  alt: string;
+}) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -9,7 +15,7 @@ const ImagePreviewModal = ({ src, alt = 'Preview image' }: {src: string, alt: st
       <img
         src={src}
         alt={alt}
-        className="image-thumbnail"
+        className="thumbnail"
         onClick={() => setOpen(true)}
       />
 
@@ -17,12 +23,10 @@ const ImagePreviewModal = ({ src, alt = 'Preview image' }: {src: string, alt: st
         <div className="image-modal-backdrop" onClick={() => setOpen(false)}>
           <div
             className="image-modal-content"
-            onClick={(e) => e.stopPropagation()}
-          >
+            onClick={(e) => e.stopPropagation()}>
             <button
               className="image-modal-close"
-              onClick={() => setOpen(false)}
-            >
+              onClick={() => setOpen(false)}>
               × Close
             </button>
             <img src={src} alt={alt} className="image-modal-img" />

@@ -1,5 +1,6 @@
 import './MyJourney.css';
-import '../index.css';
+import '../../../animations/image-mask.scss';
+import MaskedImage from '../../../animations/ImageMask';
 
 const MyJourney = () => {
   return (
@@ -20,9 +21,10 @@ const MyJourney = () => {
         </section>
 
         <section>
-          <img
+          <MaskedImage
             src="files/images/spse-campus.jpg"
             alt="High School"
+            mask="files/images/masks/spse-logo-mask.svg"
             className="section-image"
           />
           <div>
@@ -48,9 +50,10 @@ const MyJourney = () => {
         </section>
 
         <section>
-          <img
+          <MaskedImage
             src="files/images/via-campus.jpg"
             alt="Studying Abroad"
+            mask="files/images/masks/via-logo-mask.svg"
             className="section-image"
           />
           <div>
@@ -78,9 +81,11 @@ const MyJourney = () => {
         </section>
 
         <section>
-          <img
+          <MaskedImage
             src="files/images/ness-ke.jpg"
             alt="Internship"
+            mask="files/images/masks/ness-ke-mask.svg"
+            invertMask={false}
             className="section-image"
           />
           <div>

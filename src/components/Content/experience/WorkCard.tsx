@@ -12,7 +12,7 @@ export interface WorkItem {
 
 const WorkCard = ({ item }: { item: WorkItem }) => {
   return (
-    <div className="work-card">
+    <div className="work-card" key={item.company}>
       <div className="logo">
         <img src={item.logo} alt={`${item.company} logo`} />
       </div>
@@ -27,19 +27,24 @@ const WorkCard = ({ item }: { item: WorkItem }) => {
 
       <div className="duration">
         <p>
-            {item.start} - {item.end || 'Present'}
+          {item.start} - {item.end || 'Present'}
         </p>
       </div>
-      
+
       <div className="description">
         <p>
-            {item.description.length > 200 ? `${item.description.slice(0, 200)}...` : item.description}
+          {item.description.length > 200
+            ? `${item.description.slice(0, 200)}...`
+            : item.description}
         </p>
       </div>
-      
 
       <div className="links">
-        <a href={item.website} target="_blank" rel="noopener noreferrer" className="view-website-link">
+        <a
+          href={item.website}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="view-website-link">
           Visit Company Website
         </a>
       </div>

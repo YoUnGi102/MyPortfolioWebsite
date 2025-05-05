@@ -1,0 +1,54 @@
+.scroll-to-top-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.up-arrow {
+  width: 50%;
+  height: auto;
+}
+
+.scroll-to-top-button:hover {
+  opacity: 1;
+}
+
+@media (max-width: 2560px) {
+  .scroll-to-top-button {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 1920px) {
+  .scroll-to-top-button {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 766px) {
+  .scroll-to-top-button {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 566px) {
+  .scroll-to-top-button {
+    width: 60px;
+    height: 60px;
+  }
+}

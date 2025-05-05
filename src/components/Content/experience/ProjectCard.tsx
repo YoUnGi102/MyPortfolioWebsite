@@ -10,7 +10,7 @@ export interface ProjectItem {
 
 const ProjectCard = ({ item }: { item: ProjectItem }) => {
   return (
-    <div className="project-card">
+    <div className="project-card" key={item.title}>
       <div className="logo">
         <img src={item.logo} alt={`${item.title} logo`} />
       </div>
@@ -29,15 +29,21 @@ const ProjectCard = ({ item }: { item: ProjectItem }) => {
 
       <div className="tech-stack">
         <strong>Tech Stack:</strong>
-        <ul>
+        <div>
           {item.techStack.map((tech, index) => (
-            <li key={index}>{tech}</li>
+            <span className="tech-skill" key={index}>
+              {tech}
+            </span>
           ))}
-        </ul>
+        </div>
       </div>
 
       <div className="links">
-        <a href={item.url} target="_blank" rel="noopener noreferrer" className="view-project-link">
+        <a
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="view-project-link">
           View Live
         </a>
       </div>

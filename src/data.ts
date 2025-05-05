@@ -107,7 +107,6 @@ const data = {
       verify: 'https://coursera.org/verify/YUWOJ2IWIDNX',
       achieved: '2025',
     },
-    
   ],
   projects: [
     {

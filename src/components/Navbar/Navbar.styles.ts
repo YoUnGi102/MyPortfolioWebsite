@@ -65,7 +65,6 @@ export const HamburgerMenu = styled.button`
 
 export const MobileMenu = styled.div<{ isOpen: boolean }>`
   display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
-  margin-top: 31px;
   padding: 30px 0;
   flex-direction: column;
   gap: 30px;

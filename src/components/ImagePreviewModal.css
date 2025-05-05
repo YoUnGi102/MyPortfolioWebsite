@@ -5,7 +5,7 @@
   padding: 1rem;
 }
 
-.image-thumbnail {
+.thumbnail {
   width: 100%;
   height: auto;
   cursor: pointer;
@@ -38,7 +38,7 @@
 }
 
 .image-modal-img {
-  max-height: 85vh;
+  width: 100%;
   display: block;
   margin: auto;
   border-radius: 8px;
