@@ -1,56 +1,80 @@
 .education-card {
+  display: grid;
+  grid-template-areas:
+    'logo institution institution'
+    'logo location type'
+    'logo major major'
+    'logo duration duration';
+  grid-template-columns: repeat(3, auto-fit);
+  grid-template-rows: repeat(4, auto-fit);
   border: 1px solid #e5e7eb;
   border-radius: 3rem;
-  padding: 3.75rem;
+  padding: 3rem;
   background-color: white;
   box-shadow: 0 0.1875rem 0.375rem rgba(0, 0, 0, 0.05);
   transition: box-shadow 0.3s ease;
-  max-width: 112.5rem;
+  column-gap: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.education-card:hover {
-  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.08);
+.education-card > img.logo {
+  align-self: center;
+  grid-area: logo;
+  text-align: center;
+}
+.education-card > strong.institution {
+  font-size: 2rem;
+  grid-area: institution;
+  text-align: left;
+}
+.education-card > p.major {
+  grid-area: major;
+  text-align: left;
+}
+.education-card p.duration {
+  grid-area: duration;
+  text-align: right;
+  transform: skewX(-20deg);
+}
+.education-card p.type {
+  grid-area: type;
+  text-align: right;
+  transform: skewX(-20deg);
+}
+.education-card p.location {
+  grid-area: location;
 }
 
-.education-header {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-  margin-bottom: 2.25rem;
-}
+@media (max-width: 966px) {
+  .education-card {
+    grid-template-areas:
+      'logo logo'
+      'institution institution'
+      'major major'
+      'type location'
+      'duration duration';
+    grid-template-rows: repeat(5, auto);
+    row-gap: 1rem;
+  }
 
-.education-logo {
-  width: 9rem;
-  height: 9rem;
-  object-fit: contain;
-}
-
-.education-institution {
-  font-size: 3.375rem;
-  font-weight: 600;
-  color: #1f2937;
-  margin: 0;
-}
-
-.education-type {
-  font-size: 2.625rem;
-  color: #6b7280;
-  margin: 0;
-}
-
-.education-major {
-  font-size: 3rem;
-  color: #374151;
-  margin-bottom: 0.75rem;
-}
-
-.education-location {
-  font-size: 2.625rem;
-  color: #4b5563;
-  margin-bottom: 0.75rem;
-}
-
-.education-dates {
-  font-size: 2.4375rem;
-  color: #9ca3af;
+  .education-card > img.logo {
+    max-width: 200px;
+    justify-self: center;
+  }
+  .education-card > strong.institution {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .education-card > p.major {
+    text-align: center;
+  }
+  .education-card > p.type {
+    text-align: left;
+  }
+  .education-card > p.location {
+    text-align: right;
+  }
+  .education-card > p.duration {
+    text-align: center;
+  }
 }

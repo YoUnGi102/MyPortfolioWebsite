@@ -17,7 +17,7 @@ const App: React.FC = () => {
         className="container"
         style={{ marginTop: `${menuHeight + 100}px` }}>
         <Routes>
-          <Route path="/about-me" element={<AboutMe />} />
+          <Route path="/" element={<AboutMe />} />
           <Route path="/education" element={<EducationAndCourses />} />
           <Route path="/experience" element={<Experience />} />
         </Routes>

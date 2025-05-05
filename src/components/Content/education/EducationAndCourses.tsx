@@ -2,29 +2,15 @@ import React from 'react';
 import data from '../../../data';
 import './EducationAndCourses.css';
 import ImagePreviewModal from '../../ImagePreviewModal';
+import EducationCard from './EducationCard';
 
 const EducationAndCourses: React.FC = () => {
   return (
     <section className="section">
       <h2 className="section-title">Education</h2>
       <div className="grid">
-        {data.education.map((edu, idx) => (
-          <div className="education-card" key={idx}>
-            <img
-              src={edu.logo}
-              alt={`${edu.institution} logo`}
-              className="logo"
-            />
-            <div className="info">
-              <strong>{edu.institution}</strong>
-              <br />
-              {edu.major}
-              <br />
-              {edu.type} — {edu.location}
-              <br />
-              {edu.start} – {edu.end}
-            </div>
-          </div>
+        {data.education.map((edu) => (
+          <EducationCard item={edu} />
         ))}
       </div>
 

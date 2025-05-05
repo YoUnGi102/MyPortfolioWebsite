@@ -13,23 +13,17 @@ type EducationItem = {
 
 const EducationCard: React.FC<{ item: EducationItem }> = ({ item }) => {
   return (
-    <div className="education-card">
-      <div className="education-header">
-        <img
-          src={item.logo}
-          alt={`${item.institution} logo`}
-          className="education-logo"
-        />
-        <div>
-          <h3 className="education-institution">{item.institution}</h3>
-          <p className="education-type">{item.type}</p>
-        </div>
-      </div>
-      <p className="education-major">{item.major}</p>
-      <p className="education-location">{item.location}</p>
-      <p className="education-dates">
-        {item.start} – {item.end}
-      </p>
+    <div className="education-card" key={item.institution}>
+      <img
+        src={item.logo}
+        alt={`${item.institution} logo`}
+        className="logo"
+      />
+      <strong className='institution'>{item.institution}</strong>
+      <p className='major'>{item.major}</p>
+      <p className='type'>{item.type}</p>
+      <p className='location'>{item.location}</p>
+      <p className='duration'>{item.start} – {item.end}</p>
     </div>
   );
 };

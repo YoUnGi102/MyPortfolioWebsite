@@ -74,7 +74,7 @@ const Navbar: React.FC<{
         {isMobileMenuOpen ? '✖' : '☰'}
       </HamburgerMenu>
       <NavLinks>
-        <NavLink onClick={() => handleNavigation('about-me')}>About Me</NavLink>
+        <NavLink onClick={() => handleNavigation('')}>About Me</NavLink>
         <NavLink onClick={() => handleNavigation('education')}>
           Education
         </NavLink>
@@ -83,7 +83,7 @@ const Navbar: React.FC<{
         </NavLink>
       </NavLinks>
       <MobileMenu isOpen={isMobileMenuOpen}>
-        <NavLink onClick={() => handleNavigation('about-me')}>About Me</NavLink>
+        <NavLink onClick={() => handleNavigation('')}>About Me</NavLink>
         <NavLink onClick={() => handleNavigation('education')}>
           Education
         </NavLink>

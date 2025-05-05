@@ -64,6 +64,7 @@ const data = {
       logo: 'files/images/coursera-logo.svg',
       title: 'IBM - Application Development using Microservices and Serverless',
       file: 'files/certificates/img/Coursera - Application Development using Microservices and Serverless.jpg',
+      verify: 'https://coursera.org/verify/7JXTB9S73TO8',
       achieved: '2025',
     },
     {
@@ -71,13 +72,15 @@ const data = {
       logo: 'files/images/coursera-logo.svg',
       title: 'IBM - Introduction to Agile Development and Scrum',
       file: 'files/certificates/img/Coursera - Introduction to Agile Development and Scrum.jpg',
+      verify: 'https://coursera.org/verify/T06DBX0D6YN8',
       achieved: '2025',
     },
     {
       institution: 'Coursera',
       logo: 'files/images/coursera-logo.svg',
       title: 'IBM - Continuous Integration and Continuous Delivery (CI-CD)',
-      file: 'files/certificates/img/Coursera - Introduction to Agile Development and Scrum.jpg',
+      file: 'files/certificates/img/Coursera - Continuous Integration and Continuous Delivery (CI-CD).jpg',
+      verify: 'https://coursera.org/verify/204XW3ECNUXN',
       achieved: '2025',
     },
     {
@@ -85,6 +88,7 @@ const data = {
       logo: 'files/images/coursera-logo.svg',
       title: 'IBM - Introduction to Containers w Docker, Kubernetes',
       file: 'files/certificates/img/Coursera - Introduction to Containers w Docker, Kubernetes.jpg',
+      verify: 'https://coursera.org/verify/4S5I2UQUUX6E',
       achieved: '2025',
     },
     {
@@ -92,6 +96,7 @@ const data = {
       logo: 'files/images/coursera-logo.svg',
       title: 'IBM - Introduction to DevOps',
       file: 'files/certificates/img/Coursera - Introduction to DevOps.jpg',
+      verify: 'https://coursera.org/verify/8H8Q6LSB7NJB',
       achieved: '2025',
     },
     {
@@ -99,6 +104,7 @@ const data = {
       logo: 'files/images/coursera-logo.svg',
       title: 'IBM - Introduction to Test and Behavior Driven Development',
       file: 'files/certificates/img/Coursera - Introduction to Test and Behavior Driven Development.jpg',
+      verify: 'https://coursera.org/verify/YUWOJ2IWIDNX',
       achieved: '2025',
     },
     

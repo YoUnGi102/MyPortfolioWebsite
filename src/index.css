@@ -12,16 +12,16 @@ html {
 }
 @media (max-width: 3000px) {
   html {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 }
 @media (max-width: 2560px) {
   html {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 @media (max-width: 1920px) {
   html {
-    font-size: 1.6rem;
+    font-size: 1rem;
   }
 }
