@@ -1,0 +1,58 @@
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.image-thumbnail {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.2s;
+}
+
+.image-thumbnail:hover {
+  opacity: 0.8;
+}
+
+.image-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.image-modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  background: transparent;
+  border-radius: 8px;
+}
+
+.image-modal-img {
+  max-height: 85vh;
+  display: block;
+  margin: auto;
+  border-radius: 8px;
+}
+
+.image-modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: white;
+  color: black;
+  border: none;
+  padding: 6px 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}

@@ -28,7 +28,7 @@ const data = {
   ],
   workExperience: [
     {
-      logo: 'https://www.ness.com/wp-content/images/Ness.svg',
+      logo: 'files/images/ness-ke.svg',
       position: 'Full Stack Developer',
       company: 'Ness KE s.r.o.',
       website: 'https://www.ness.com/ness-slovakia/',
@@ -40,7 +40,7 @@ const data = {
   ],
   education: [
     {
-      logo: 'files/images/via_logo.png',
+      logo: 'files/images/via-logo.svg',
       institution: 'VIA University College',
       major: 'Software Technology Engineering',
       type: 'Bachelor Degree',
@@ -49,7 +49,7 @@ const data = {
       end: 'January 2025',
     },
     {
-      logo: 'files/images/spse_logo.png',
+      logo: 'files/images/spse-logo.svg',
       institution: 'Secondary Vocational School of Electrical Engineering',
       major: 'Information and Networking technologies',
       type: 'High School Degree',
@@ -57,6 +57,51 @@ const data = {
       start: 'September 2017',
       end: 'May 2021',
     },
+  ],
+  courses: [
+    {
+      institution: 'Coursera',
+      logo: 'files/images/coursera-logo.svg',
+      title: 'IBM - Application Development using Microservices and Serverless',
+      file: 'files/certificates/img/Coursera - Application Development using Microservices and Serverless.jpg',
+      achieved: '2025',
+    },
+    {
+      institution: 'Coursera',
+      logo: 'files/images/coursera-logo.svg',
+      title: 'IBM - Introduction to Agile Development and Scrum',
+      file: 'files/certificates/img/Coursera - Introduction to Agile Development and Scrum.jpg',
+      achieved: '2025',
+    },
+    {
+      institution: 'Coursera',
+      logo: 'files/images/coursera-logo.svg',
+      title: 'IBM - Continuous Integration and Continuous Delivery (CI-CD)',
+      file: 'files/certificates/img/Coursera - Introduction to Agile Development and Scrum.jpg',
+      achieved: '2025',
+    },
+    {
+      institution: 'Coursera',
+      logo: 'files/images/coursera-logo.svg',
+      title: 'IBM - Introduction to Containers w Docker, Kubernetes',
+      file: 'files/certificates/img/Coursera - Introduction to Containers w Docker, Kubernetes.jpg',
+      achieved: '2025',
+    },
+    {
+      institution: 'Coursera',
+      logo: 'files/images/coursera-logo.svg',
+      title: 'IBM - Introduction to DevOps',
+      file: 'files/certificates/img/Coursera - Introduction to DevOps.jpg',
+      achieved: '2025',
+    },
+    {
+      institution: 'Coursera',
+      logo: 'files/images/coursera-logo.svg',
+      title: 'IBM - Introduction to Test and Behavior Driven Development',
+      file: 'files/certificates/img/Coursera - Introduction to Test and Behavior Driven Development.jpg',
+      achieved: '2025',
+    },
+    
   ],
   projects: [
     {
