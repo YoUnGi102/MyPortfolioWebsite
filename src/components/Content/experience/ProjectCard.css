@@ -1,15 +1,15 @@
-.work-card {
+.project-card {
   display: grid;
   grid-template-areas:
-    'logo position duration'
-    'logo company .'
+    'logo title title'
     'logo description description'
-    'logo description description'
-    '. . links';
+    'logo tech-stack tech-stack'
+    'logo . links';
   grid-template-columns: 1fr 3fr 3fr;
-  grid-template-rows: auto auto auto auto auto;
+  grid-template-rows: auto auto auto auto;
   column-gap: 2rem;
   padding: 30px;
+  box-sizing: border-box;
   box-shadow:
     0 0 15px rgba(255, 255, 255, 0.6),
     0 0 25px #333;
@@ -17,61 +17,64 @@
   border-radius: 20px;
 }
 
-.work-card > div.logo {
+.project-card > div.logo {
   grid-area: logo;
   text-align: center;
   max-width: 100%;
   box-sizing: border-box;
 }
 
-.work-card > div.position {
-  grid-area: position;
+.project-card > div.title {
+  grid-area: title;
   text-align: left;
 }
 
-.work-card > div.description {
+.project-card > div.description {
   grid-area: description;
   text-align: justify;
 }
 
-.work-card > div.company {
-  grid-area: company;
+.project-card > div.tech-stack {
+  grid-area: tech-stack;
   text-align: left;
 }
 
-.work-card > div.duration {
-  grid-area: duration;
-  text-align: right;
-  align-self: center;
-  font-size: 0.75rem;
-}
-
-.work-card > div.links {
+.project-card > div.links {
   grid-area: links;
   text-align: right;
 }
 
+.project-card a.view-project-link {
+  font-size: 1rem;
+  color: #2196f3;
+  text-decoration: none;
+}
+
+.project-card a.view-project-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive styles for mobile view */
 @media (max-width: 966px) {
-  .work-card {
+  .project-card {
     grid-template-areas:
       'logo logo'
-      'position position'
-      'company company'
-      'duration duration'
+      'title title'
       'description description'
+      'tech-stack tech-stack'
       'links links';
     grid-template-columns: repeat(2, 2fr);
-    grid-template-rows: repeat(6, auto);
+    grid-template-rows: repeat(5, auto);
     gap: 10px;
   }
 
-  div.logo img {
+  .project-card img {
     width: 60%;
   }
 
-  div.position h3,
-  div.company p,
-  div.duration p,
+  div.title h3,
+  div.description p,
+  div.tech-stack,
   div.links {
     margin: 0;
     text-align: center;
@@ -82,7 +85,11 @@
     font-size: 0.75rem;
   }
 
-  .work-card > div.links {
+  div.tech-stack {
+    margin: 10px 0;
+  }
+
+  .project-card > div.links {
     text-align: center;
     margin: 0 10px;
   }

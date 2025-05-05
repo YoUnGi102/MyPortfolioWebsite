@@ -43,6 +43,7 @@ export const NavLink = styled.button`
   font-size: 1em;
   cursor: pointer;
   text-decoration: none;
+  margin: 0 30px;
 
   &:hover {
     color: #35bcbf;

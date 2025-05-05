@@ -1,0 +1,5 @@
+.work-list,
+.project-list {
+  display: grid;
+  gap: 20px;
+}
