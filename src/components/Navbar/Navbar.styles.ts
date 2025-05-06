@@ -24,6 +24,7 @@ export const NavbarContainer = styled.div<{ isVisible: boolean }>`
 
 export const NavbarTitle = styled.h1`
   font-size: 1.5em;
+  font-family: Arial, Helvetica, sans-serif;
   margin: 0;
 `;
 

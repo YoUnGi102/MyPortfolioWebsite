@@ -6,14 +6,17 @@
   color: white;
   border: none;
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
+  width: calc(5vw + 20px);
+  height: calc(5vw + 20px);
   font-size: 1.5rem;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   opacity: 0.8;
   transition: opacity 0.3s ease;
   z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .up-arrow {
@@ -24,7 +27,7 @@
 .scroll-to-top-button:hover {
   opacity: 1;
 }
-
+/* 
 @media (max-width: 2560px) {
   .scroll-to-top-button {
     width: 150px;
@@ -51,4 +54,4 @@
     width: 60px;
     height: 60px;
   }
-}
+} */

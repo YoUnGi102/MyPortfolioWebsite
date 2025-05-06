@@ -112,7 +112,6 @@ const data = {
     {
       logo: 'files/images/hckosice.png',
       title: 'HcKošice',
-      url: 'https://vstupenky.hckosice.sk/',
       description:
         'I worked on this project during my internship at Ness KE, where I was in a team of around 7 developers, utilizing a modified SCRUM methodology.' +
         ' I was tasked with designing new features, implementing said features, finding and fixing bugs as well as documenting the system. ' +
@@ -137,9 +136,8 @@ const data = {
       ]
     },
     {
-      logo: '', //'files/images/mealprep-tracker-logo.svg',
+      logo: 'files/images/mealprep-tracker-logo.svg',
       title: 'MealPrepTracker',
-      url: 'https://mealpreptrackerfrontend.onrender.com/',
       githubLinks: '',
       description: 'I have a great passion for working-out and eating healthy and so I decided to build a project that would help me.' +
       ' MealPrepTracker is my project, which I will help me (and possibly others) easily save recipes and track associated macro-nutrients.' +
@@ -178,11 +176,13 @@ const data = {
       ]
     },
     {
-      logo: '',
+      logo: 'files/images/via-logo.svg',
       title: 'ChadList',
-      url: '',
-      githubLink: '',
-      description: '',
+      description: 'A project I developed in my 3rd semester at VIA, with 3 of my classmates. This was my first experience with a N-tier ' +
+      'architecture. It was designed with UN Goals in mind (specifically #12 - Sustainable consumption and production) and it\'s purpose ' +
+      'for people to post their unused belongings (whether its kitchen appliances, furniture, tools etc.) for other people who might find' +
+      ' use for them rather than throwing it out. It was developed using Blazor on the Presentation layer, .NET for the Bussiness / Logic' +
+      ' layer and JAVA with a gRPC API for Database layer.',
       techStack: [
         'Java',
         'JPA/Hibernate',
@@ -192,6 +192,23 @@ const data = {
         'Blazor',
         'JUnit',
       ],
+      projectLinks: [
+        {
+          icon: faGithub,
+          title: 'Presentation Layer',
+          url: 'https://github.com/dragoselul/SEP3/tree/main/SEP3/SEP3%20Project/PresentationTier',
+        },
+        {
+          icon: faGithub,
+          title: 'Business Layer',
+          url: 'https://github.com/dragoselul/SEP3/tree/main/SEP3/SEP3%20Project/BusinessLogicTier',
+        },
+        {
+          icon: faGithub,
+          title: 'Database Layer',
+          url: 'https://github.com/dragoselul/SEP3/tree/main/SEP3/SEP3%20Project/DataAccessTier'
+        }
+      ]
     },
   ],
   socialLinks: [

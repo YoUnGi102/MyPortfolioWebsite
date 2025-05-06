@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './ScrollToTopButton.css';
+import './ScrollToTopButton.scss';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition } from '@fortawesome/free-brands-svg-icons';

@@ -10,7 +10,6 @@ export interface ProjectLink {
 export interface ProjectItem {
   logo: string;
   title: string;
-  url: string;
   description: string;
   techStack: string[];
   projectLinks?: ProjectLink[]; 
@@ -36,14 +35,11 @@ const ProjectCard = ({ item, onDetail }: { item: ProjectItem, onDetail: () => vo
       </div>
 
       <div className="tech-stack">
-        <strong>Tech Stack:</strong>
-        <div>
           {item.techStack.map((tech, index) => (
             <span className="tech-skill" key={index}>
               {tech}
             </span>
           ))}
-        </div>
       </div>
 
       <button className="links" onClick={onDetail}>View Details</button>

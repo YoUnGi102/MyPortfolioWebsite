@@ -17,7 +17,19 @@
     width: 90%;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    max-height: 90vh;
+    overflow-y: auto; 
     position: relative;
+  }
+
+  .modal-content::-webkit-scrollbar {
+    width: 0px;
+    background-color: #fff;
+  }
+  
+  .modal-content::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 12px;
   }
   
   .close-button {
@@ -65,3 +77,17 @@
     border: 2px #fff solid;
     color: #fff;
   }
+
+
+@media (max-width: 766px) {
+
+    .project-link-container {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .project-link-container > a {
+        width: 100%;
+        text-align: center;
+    }
+}

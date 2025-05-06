@@ -3,13 +3,14 @@
   grid-template-areas:
     'logo title title'
     'logo description description'
-    'logo tech-stack tech-stack'
-    'logo . links';
+    'tech-stack tech-stack tech-stack'
+    '. . links';
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto auto auto;
   column-gap: 2rem;
   padding: 30px;
   box-sizing: border-box;
+  background-color: white;
   box-shadow:
     0 0 15px rgba(255, 255, 255, 0.6),
     0 0 25px #333;
@@ -19,11 +20,16 @@
 
 .project-card > div.logo {
   grid-area: logo;
-  max-width: 500px;
   text-align: center;
   justify-self: center;
   max-width: 90%;
   box-sizing: border-box;
+}
+
+.project-card img {
+  width: 60%;
+  max-width: 500px;
+  justify-self: center;
 }
 
 .project-card > div.title {
@@ -59,9 +65,9 @@
   color: #fff;
 }
 
-.tech-stack > div {
+.tech-stack {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
@@ -108,6 +114,12 @@ span.tech-skill {
 
   div.tech-stack {
     margin: 10px 0;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+  }
+
+  div.tech-stack > * {
+    text-align: center;
   }
 
   div.tech-stack > strong {

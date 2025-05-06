@@ -69,7 +69,7 @@ const Navbar: React.FC<{
 
   return (
     <NavbarContainer ref={mobileMenuRef} isVisible={isVisible}>
-      <NavbarTitle>My Portfolio</NavbarTitle>
+      <NavbarTitle>Tomáš Greš</NavbarTitle>
       <HamburgerMenu onClick={toggleMobileMenu}>
         {isMobileMenuOpen ? '✖' : '☰'}
       </HamburgerMenu>
