@@ -5,10 +5,10 @@
     'logo description description'
     'logo tech-stack tech-stack'
     'logo . links';
-  grid-template-columns: 1fr 3fr 3fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto auto auto;
   column-gap: 2rem;
-  padding: 30px 0;
+  padding: 30px;
   box-sizing: border-box;
   box-shadow:
     0 0 15px rgba(255, 255, 255, 0.6),
@@ -19,8 +19,10 @@
 
 .project-card > div.logo {
   grid-area: logo;
+  max-width: 500px;
   text-align: center;
-  max-width: 100%;
+  justify-self: center;
+  max-width: 90%;
   box-sizing: border-box;
 }
 
@@ -81,6 +83,7 @@ span.tech-skill {
       'description description'
       'tech-stack tech-stack'
       'links links';
+    padding: 30px 0;
     grid-template-columns: repeat(2, 2fr);
     grid-template-rows: repeat(5, auto);
     gap: 10px;

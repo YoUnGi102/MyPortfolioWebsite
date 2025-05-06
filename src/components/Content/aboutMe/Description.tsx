@@ -4,7 +4,7 @@ import Typewriter from '../../../animations/Typewritter';
 import '../../../animations/hover-rays.scss';
 
 const text =
-  "I'm a software engineer who loves building apps, learning tech, and staying active.";
+  "Hi, I´m Tomáš.\nI'm a software engineer who loves building apps, learning tech, and staying active.";
 
 const Description: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const Description: React.FC = () => {
       <img
         className="profile-image"
         src="files/images/profile.jpg"
-        alt="Your Name"
+        alt="Tomas Gres"
       />
       <div className="description-text">
         <Typewriter lines={[text]} />

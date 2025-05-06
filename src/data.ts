@@ -115,7 +115,7 @@ const data = {
       url: 'https://vstupenky.hckosice.sk/',
       description:
         'I worked on this project during my internship at Ness KE, where I was in a team of around 7 developers, utilizing a modified SCRUM methodology.' +
-        'I was tasked with designing new features, implementing said features, finding and fixing bugs as well as documenting the system. ' +
+        ' I was tasked with designing new features, implementing said features, finding and fixing bugs as well as documenting the system. ' +
         'The technologies we used during development were React & Redux on the front-end, Node.js & Express.js on the back-end, and PostgreSQL' +
         ' with TypeORM for the database.',
       techStack: [
