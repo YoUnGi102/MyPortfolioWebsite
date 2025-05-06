@@ -1,5 +1,5 @@
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faGlobe } from '@fortawesome/free-solid-svg-icons';
 
 const data = {
   aboutMe:
@@ -114,7 +114,10 @@ const data = {
       title: 'HcKošice',
       url: 'https://vstupenky.hckosice.sk/',
       description:
-        'I worked on this project during my internship, where I was in a team of around 7 developers, utilizing a modified SCRUM methodology. I was tasked with designing new features, implementing said features, finding and fixing bugs as well as documenting the system. The technologies we used during development were React & Redux on the front-end, Node.js & Express.js on the back-end, and PostgreSQL with TypeORM for the database.',
+        'I worked on this project during my internship at Ness KE, where I was in a team of around 7 developers, utilizing a modified SCRUM methodology.' +
+        'I was tasked with designing new features, implementing said features, finding and fixing bugs as well as documenting the system. ' +
+        'The technologies we used during development were React & Redux on the front-end, Node.js & Express.js on the back-end, and PostgreSQL' +
+        ' with TypeORM for the database.',
       techStack: [
         'ReactJs',
         'Redux',
@@ -123,14 +126,26 @@ const data = {
         'Express.js',
         'PostgreSQL',
         'TypeORM',
+        'WebSockets'
       ],
+      projectLinks: [
+        {
+          icon: faGlobe,
+          title: 'Live Website',
+          url: 'https://vstupenky.hckosice.sk/',
+        }
+      ]
     },
     {
-      logo: '',
+      logo: '', //'files/images/mealprep-tracker-logo.svg',
       title: 'MealPrepTracker',
       url: 'https://mealpreptrackerfrontend.onrender.com/',
-      githubLink: '',
-      description: '',
+      githubLinks: '',
+      description: 'I have a great passion for working-out and eating healthy and so I decided to build a project that would help me.' +
+      ' MealPrepTracker is my project, which I will help me (and possibly others) easily save recipes and track associated macro-nutrients.' +
+      'The project is still in the early stages of development, but it is already live and can be used. I am develpoing this project with ' +
+      'scalability and maintainability in mind (as if it was a product to be used my many people). The main technologies I chose to use were' +
+      ' React (with Redux for state management) on the Front-end and Node.js/Express with PostgreSQL for the RESTFul API.',
       techStack: [
         'ReactJS',
         'Redux',
@@ -144,6 +159,23 @@ const data = {
         'Docker',
         'CI/CD',
       ],
+      projectLinks: [
+        {
+          icon: faGlobe,
+          title: 'Live Website',
+          url: 'https://mealpreptrackerfrontend.onrender.com/',
+        },
+        {
+          icon: faGithub,
+          title: 'Front-end',
+          url: 'https://github.com/YoUnGi102/MealPrepTrackerFrontend',
+        },
+        {
+          icon: faGithub,
+          title: 'Back-end',
+          url: 'https://github.com/YoUnGi102/MealPrepTrackerBusiness',
+        }
+      ]
     },
     {
       logo: '',

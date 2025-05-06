@@ -39,23 +39,27 @@
   text-align: left;
 }
 
-.project-card > div.links {
+.project-card > button.links {
   grid-area: links;
   text-align: right;
+  border-radius: 20px;
+  background-color: #fff;
+  border: 2px #007bff solid;
+  color: #007bff;
+  justify-self: right;
+  margin-top: 20px;
+  padding: 10px;
 }
 
-.project-card a.view-project-link {
-  font-size: 1rem;
-  color: #2196f3;
-  text-decoration: none;
-}
-
-.project-card a.view-project-link:hover {
-  text-decoration: underline;
+.project-card > button.links:hover {
+  background-color: #007bff;
+  border: 2px #fff solid;
+  color: #fff;
 }
 
 .tech-stack > div {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -110,7 +114,7 @@ span.tech-skill {
     justify-self: center;
   }
 
-  .project-card > div.links {
+  .project-card > button.links {
     text-align: center;
     margin: 0 10px;
   }

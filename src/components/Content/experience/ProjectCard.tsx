@@ -1,4 +1,11 @@
+import { IconDefinition } from '@fortawesome/free-brands-svg-icons';
 import './ProjectCard.css';
+
+export interface ProjectLink {
+  icon?: IconDefinition,
+  title: string;
+  url: string;
+}
 
 export interface ProjectItem {
   logo: string;
@@ -6,9 +13,10 @@ export interface ProjectItem {
   url: string;
   description: string;
   techStack: string[];
+  projectLinks?: ProjectLink[]; 
 }
 
-const ProjectCard = ({ item }: { item: ProjectItem }) => {
+const ProjectCard = ({ item, onDetail }: { item: ProjectItem, onDetail: () => void }) => {
   return (
     <div className="project-card" key={item.title}>
       <div className="logo">
@@ -38,15 +46,7 @@ const ProjectCard = ({ item }: { item: ProjectItem }) => {
         </div>
       </div>
 
-      <div className="links">
-        <a
-          href={item.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="view-project-link">
-          View Live
-        </a>
-      </div>
+      <button className="links" onClick={onDetail}>View Details</button>
     </div>
   );
 };
