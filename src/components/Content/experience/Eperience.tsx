@@ -5,12 +5,11 @@ import ProjectModal from './projects/ProjectModal';
 import WorkCard, { WorkItem } from './WorkCard';
 
 const Experience = () => {
-
   const [projectDetail, setProjectDetail] = useState<ProjectItem | null>(null);
 
   const onClose = () => {
     setProjectDetail(null);
-  } 
+  };
 
   return (
     <>
@@ -25,9 +24,12 @@ const Experience = () => {
       <section>
         <h2>Projects</h2>
         <div className="projects-list">
-          {data.projects.map((project: ProjectItem) =>
-            <ProjectCard item={project as ProjectItem} onDetail={() => setProjectDetail(project)} />
-          )}
+          {(data.projects as ProjectItem[]).map((project: ProjectItem) => (
+            <ProjectCard
+              item={project as ProjectItem}
+              onDetail={() => setProjectDetail(project as ProjectItem)}
+            />
+          ))}
           <ProjectModal project={projectDetail} onClose={onClose} />
         </div>
       </section>

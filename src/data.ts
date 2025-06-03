@@ -1,4 +1,8 @@
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import {
+  faGithub,
+  faLinkedin,
+  IconDefinition,
+} from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faGlobe } from '@fortawesome/free-solid-svg-icons';
 
 const data = {
@@ -125,25 +129,50 @@ const data = {
         'Express.js',
         'PostgreSQL',
         'TypeORM',
-        'WebSockets'
+        'WebSockets',
       ],
       projectLinks: [
         {
           icon: faGlobe,
           title: 'Live Website',
           url: 'https://vstupenky.hckosice.sk/',
-        }
-      ]
+        },
+      ],
+    },
+    {
+      logo: 'files/images/nodejs-logo.svg',
+      title: 'NodeJS/Express Template',
+      description:
+        'A production-ready Node.js/Express backend template built with TypeScript and designed for scalability, testability, and clean architecture. It includes robust authentication with refresh tokens, full test coverage (unit & integration), Docker support, CI/CD pipeline, and a decoupled TypeORM setup for easy persistence swapping. Created to demonstrate backend engineering best practices and real-world application structure.',
+      techStack: [
+        'Node.js',
+        'RESTApi',
+        'TypeScript',
+        'Express.js',
+        'Jest',
+        'Supertest',
+        'PostgreSQL',
+        'TypeORM',
+        'Docker',
+        'CI/CD',
+      ],
+      projectLinks: [
+        {
+          icon: faGithub as IconDefinition,
+          title: 'Repository',
+          url: 'https://github.com/YoUnGi102/NodeJS-Express-Template',
+        },
+      ],
     },
     {
       logo: 'files/images/mealprep-tracker-logo.svg',
       title: 'MealPrepTracker',
-      githubLinks: '',
-      description: 'I have a great passion for working-out and eating healthy and so I decided to build a project that would help me.' +
-      ' MealPrepTracker is my project, which I will help me (and possibly others) easily save recipes and track associated macro-nutrients.' +
-      'The project is still in the early stages of development, but it is already live and can be used. I am develpoing this project with ' +
-      'scalability and maintainability in mind (as if it was a product to be used my many people). The main technologies I chose to use were' +
-      ' React (with Redux for state management) on the Front-end and Node.js/Express with PostgreSQL for the RESTFul API.',
+      description:
+        'I have a great passion for working-out and eating healthy and so I decided to build a project that would help me.' +
+        ' MealPrepTracker is my project, which I will help me (and possibly others) easily save recipes and track associated macro-nutrients.' +
+        'The project is still in the early stages of development, but it is already live and can be used. I am develpoing this project with ' +
+        'scalability and maintainability in mind (as if it was a product to be used my many people). The main technologies I chose to use were' +
+        ' React (with Redux for state management) on the Front-end and Node.js/Express with PostgreSQL for the RESTFul API.',
       techStack: [
         'ReactJS',
         'Redux',
@@ -159,30 +188,31 @@ const data = {
       ],
       projectLinks: [
         {
-          icon: faGlobe,
+          icon: faGlobe as IconDefinition,
           title: 'Live Website',
           url: 'https://mealpreptrackerfrontend.onrender.com/',
         },
         {
-          icon: faGithub,
+          icon: faGithub as IconDefinition,
           title: 'Front-end',
           url: 'https://github.com/YoUnGi102/MealPrepTrackerFrontend',
         },
         {
-          icon: faGithub,
+          icon: faGithub as IconDefinition,
           title: 'Back-end',
           url: 'https://github.com/YoUnGi102/MealPrepTrackerBusiness',
-        }
-      ]
+        },
+      ],
     },
     {
       logo: 'files/images/via-logo.svg',
       title: 'ChadList',
-      description: 'A project I developed in my 3rd semester at VIA, with 3 of my classmates. This was my first experience with a N-tier ' +
-      'architecture. It was designed with UN Goals in mind (specifically #12 - Sustainable consumption and production) and it\'s purpose ' +
-      'for people to post their unused belongings (whether its kitchen appliances, furniture, tools etc.) for other people who might find' +
-      ' use for them rather than throwing it out. It was developed using Blazor on the Presentation layer, .NET for the Bussiness / Logic' +
-      ' layer and JAVA with a gRPC API for Database layer.',
+      description:
+        'A project I developed in my 3rd semester at VIA, with 3 of my classmates. This was my first experience with a N-tier ' +
+        "architecture. It was designed with UN Goals in mind (specifically #12 - Sustainable consumption and production) and it's purpose " +
+        'for people to post their unused belongings (whether its kitchen appliances, furniture, tools etc.) for other people who might find' +
+        ' use for them rather than throwing it out. It was developed using Blazor on the Presentation layer, .NET for the Bussiness / Logic' +
+        ' layer and JAVA with a gRPC API for Database layer.',
       techStack: [
         'Java',
         'JPA/Hibernate',
@@ -206,9 +236,9 @@ const data = {
         {
           icon: faGithub,
           title: 'Database Layer',
-          url: 'https://github.com/dragoselul/SEP3/tree/main/SEP3/SEP3%20Project/DataAccessTier'
-        }
-      ]
+          url: 'https://github.com/dragoselul/SEP3/tree/main/SEP3/SEP3%20Project/DataAccessTier',
+        },
+      ],
     },
   ],
   socialLinks: [

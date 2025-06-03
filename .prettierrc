@@ -15,6 +15,5 @@
   "requirePragma": false,
   "insertPragma": false,
   "vueIndentScriptAndStyle": true,
-  "eslintIntegration": true,
   "bracketSameLine": true
 }

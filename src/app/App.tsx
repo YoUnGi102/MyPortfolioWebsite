@@ -14,7 +14,9 @@ const App: React.FC = () => {
   return (
     <HashRouter>
       <Navbar onMenuToggle={(height: number) => setMenuHeight(height)} />
-      <div className="container" style={{ marginTop: `${menuHeight + 100}px`, marginBottom: 20 }}>
+      <div
+        className="container"
+        style={{ marginTop: `${menuHeight + 100}px`, marginBottom: 20 }}>
         <Routes>
           <Route path="/" element={<AboutMe />} />
           <Route path="/education" element={<EducationAndCourses />} />

@@ -3,17 +3,13 @@ import { ProjectItem } from '../ProjectCard';
 import './ProjectModal.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition } from '@fortawesome/free-brands-svg-icons';
-import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 
 interface ProjectModalProps {
   onClose: () => void;
   project?: ProjectItem | null;
 }
 
-const ProjectModal: React.FC<ProjectModalProps> = ({
-  onClose,
-  project
-}) => {
+const ProjectModal: React.FC<ProjectModalProps> = ({ onClose, project }) => {
   if (!project) return null;
 
   return (
@@ -30,14 +26,16 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
             <li key={index}>{tech}</li>
           ))}
         </ul>
-        <div className='project-link-container'>
-        {project.projectLinks?.length && project.projectLinks.map(
-            link => 
-            <a href={link.url} className="project-link" target={'_blank'}>
-             {link.icon && <FontAwesomeIcon icon={link.icon as IconDefinition} />}
-             {` ${link.title}`}
-            </a>)
-        }
+        <div className="project-link-container">
+          {project.projectLinks?.length &&
+            project.projectLinks.map((link) => (
+              <a href={link.url} className="project-link" target={'_blank'}>
+                {link.icon && (
+                  <FontAwesomeIcon icon={link.icon as IconDefinition} />
+                )}
+                {` ${link.title}`}
+              </a>
+            ))}
         </div>
       </div>
     </div>

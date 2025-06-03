@@ -2,7 +2,7 @@ import { IconDefinition } from '@fortawesome/free-brands-svg-icons';
 import './ProjectCard.css';
 
 export interface ProjectLink {
-  icon?: IconDefinition,
+  icon: IconDefinition;
   title: string;
   url: string;
 }
@@ -12,10 +12,16 @@ export interface ProjectItem {
   title: string;
   description: string;
   techStack: string[];
-  projectLinks?: ProjectLink[]; 
+  projectLinks?: ProjectLink[];
 }
 
-const ProjectCard = ({ item, onDetail }: { item: ProjectItem, onDetail: () => void }) => {
+const ProjectCard = ({
+  item,
+  onDetail,
+}: {
+  item: ProjectItem;
+  onDetail: () => void;
+}) => {
   return (
     <div className="project-card" key={item.title}>
       <div className="logo">
@@ -35,14 +41,16 @@ const ProjectCard = ({ item, onDetail }: { item: ProjectItem, onDetail: () => vo
       </div>
 
       <div className="tech-stack">
-          {item.techStack.map((tech, index) => (
-            <span className="tech-skill" key={index}>
-              {tech}
-            </span>
-          ))}
+        {item.techStack.map((tech, index) => (
+          <span className="tech-skill" key={index}>
+            {tech}
+          </span>
+        ))}
       </div>
 
-      <button className="links" onClick={onDetail}>View Details</button>
+      <button className="links" onClick={onDetail}>
+        View Details
+      </button>
     </div>
   );
 };
